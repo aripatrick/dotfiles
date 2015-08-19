@@ -1,0 +1,44 @@
+" Required for Vundle (reset later)
+filetype off
+
+" Set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'trusktr/seti.vim'
+Plugin 'ck3g/vim-change-hash-syntax'
+Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'sheerun/vim-polyglot'
+" Plugin 'vim-ruby/vim-ruby'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'rking/ag.vim'
+" Plugin 'mileszs/ack.vim'
+" Plugin 'Valloric/YouCompleteMe'
+
+" All plugins must be added before this line
+call vundle#end()
+
+" Try to detect filetypes
+filetype on
+" Enable filetype plugins
+filetype plugin on
+" Enable filetype indention
+filetype indent on
+
+"## Colors #####################################################################
+" Set default colorscheme
+colorscheme seti
+
+"### Gundo #####################################################################
+let g:gundo_right=1
+let g:gundo_preview_bottom=1
+" Toggle Gundo
+nnoremap <F5> :GundoToggle<CR>

@@ -1,0 +1,206 @@
+"## Setup ######################################################################
+runtime utils.vim
+call SetupDataDirectories()
+
+"## Plugin Management ##########################################################
+" Do not try to be compatible with VI
+set nocompatible
+
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+else
+    silent! colorscheme molokai
+endif
+
+"## Colors #####################################################################
+" Set colorcolumn to current textwidth
+set cc=0
+" Set colorcolumn color
+hi ColorColumn ctermbg=red guibg=black
+" Syntax highlighing
+syntax on
+" Setup gvim
+if has("gui_running")
+    " Setup background and colorscheme
+    set background=dark
+    colorscheme seti
+    " Remove toolbars and menus
+    set guioptions=ac
+    " Make the mouse disappear when in vim
+    set mousehide
+    " Some attempts at nice fonts
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ 11,Courier\ 10,DejaVu\ Sans\ Mono\ 9
+    elseif has("gui_macvim")
+        set guifont=Inconsolata:h11,Courier:h10,DejaVu\ Sans\ Mono:h9
+    elseif has("gui_win32")
+        set guifont=Inconsolata:h11,Courier:h10,DejaVu\ Sans\ Mono:h9
+    endif
+endif
+
+"## Spaces & Tabs ##############################################################
+
+"## General ####################################################################
+" Use UTF-8 without byte order mark
+set encoding=utf-8 nobomb
+
+"## User Interface #############################################################
+" Disable bells
+set noerrorbells visualbell t_vb=
+" Show cursor line and column
+set cursorline cursorcolumn
+" Keep 3 lines when scrolling
+set scrolloff=3
+" Set how 'invisible' characters are displayed
+set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:~
+" Show title in console title bar
+set title
+" Tab complete commands
+set wildmenu
+" List all matches and complete each full match
+set wildmode=list:full
+" Whoever wanted to modify a .pyc?
+set wildignore+=*.pyc
+" Let my cursor go everywhere
+set virtualedit=all
+" Use the / instead of \
+set shellslash
+" Always show status line
+set laststatus=2
+" Configure status line display
+set statusline=                             " Clear status line
+set statusline+=\ %n                        " Buffer number
+set statusline+=\ %{fugitive#statusline()}  " Git branch
+set statusline+=\ %<%F                      " Full file path
+set statusline+=%m                          " Modified flag
+set statusline+=%=                          " Right align everythign after this
+set statusline+=%y                          " File type
+set statusline+=%5l/%L                      " Current/total lines
+set statusline+=%4c%V                       " Column numbers
+set statusline+=%4P                         " Percentage through file
+
+if has("autocmd")
+    " Remove line/column selection on inactive panes
+    augroup diable_bells
+        autocmd!
+        autocmd GUIEnter * set visualbell t_vb=
+    augroup END
+    augroup clear_cursor
+        autocmd!
+        autocmd WinEnter * setlocal cursorline
+        autocmd WinLeave * setlocal nocursorline
+        autocmd WinEnter * setlocal cursorcolumn
+        autocmd WinLeave * setlocal nocursorcolumn
+    augroup END
+endif
+
+if has("win32")
+    " Starts gvim in full screen mode
+    autocmd GUIEnter * simalt ~x
+
+    " Disable special windows keys (copy/paste/etc)
+    set keymodel=
+endif
+
+"## Search and Highlighting ####################################################
+" Use smartcasing instead of always being case sensitive
+set ignorecase
+set smartcase
+" Enable incremental searching
+set incsearch
+" Highlight search items
+set hlsearch
+" Wrap search scan
+set wrapscan
+" Clear highlights with spacebar
+noremap<silent> <Space> :set invhlsearch hlsearch?<CR>
+
+"## Files, Backups, and Undos ##################################################
+" Set number of ':' commands, search and substitute patterns to remember
+set history=100
+" Persistent undos
+set undofile
+" What information to lsave when creating a session.
+set sessionoptions=buffers,resize,winpos,winsize
+" Settings for vim to remember stuff on startup :help viminfo
+set viminfo='100,<1000,s100,h
+
+if has("autocmd")
+    " Set current directory to that of the opened file
+    augroup set_working_path
+        autocmd!
+        autocmd BufEnter,BufWrite * silent! lcd %:p:h
+    augroup END
+endif
+
+"## Formatting #################################################################
+" Turn autoindenting on
+set autoindent
+" No word wrap
+set nowrap
+" Set default textwidth
+set textwidth=80
+" Set format options
+set formatoptions=""
+" Don't jump to first character when paging
+set nostartofline
+" Backspace over start, indent, and eol
+set backspace=2
+
+if has("autocmd")
+    " Automatically delete trailing white spaces
+    augroup clear_whitespace
+        autocmd!
+        autocmd BufEnter,BufRead,BufWrite * silent! %s/[\r \t]\+$//
+        autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+    augroup END
+    " Filetype specific tabbing
+    augroup set_tabbing
+        autocmd!
+        autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab cindent
+        autocmd FileType python,vim,vimrc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+    augroup END
+
+endif
+
+" Toggle wrap
+noremap <leader>w :set invwrap<CR>:set wrap?<CR>
+" Toggle line numbers
+noremap <leader>n :set invnumber<CR>
+" Toggle relative line numbers
+noremap <leader>r :set invrelativenumber<CR>
+" Toggle line lenth highlight
+noremap <leader>m :ToggleLineLengthHighlight<CR>
+" Toggle 'set list' to display whitespace characters
+noremap <leader>l :set invlist<CR>
+
+"## Windows ####################################################################
+" This removes the characters between split windows (and some other junk)
+set fillchars="-"
+" This allows vim to work with buffers much more liberally.
+" So no warnings when switching modified buffers
+set hidden
+" Disable the mouse
+set mouse=""
+" Navigate windows
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-l> <C-w>l
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-j> <C-w>j
+" Make window splits easier
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
+
+"## Misc #######################################################################
+" Open vimrc
+noremap <leader>v :e $MYVIMRC<CR>
+" Reload vimrc
+noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+if has("autocmd")
+    " Source vimrc everytime it's saved, to catch any potential mistakes
+    augroup source_on_save
+        autocmd!
+        autocmd BufWritePost $MYVIMRC source $MYVIMRC
+    augroup END
+endif
