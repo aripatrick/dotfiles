@@ -1,65 +1,46 @@
 Ari Patrick's Dotfiles
 ===============================
 
-
 # Installation
 
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
-
-# Setup
-## Zsh
-For Zsh (Prezto) configuration create the following symlinks:
-
-    ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
-    ln -s ~/.dotfiles/zsh/zprofile ~/.zprofile
-    ln -s ~/.dotfiles/zsh/zpreztorc ~/.zpreztorc
-
-## tmux
-For tmux configuration create this symlink:
-
-    ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
-	ln -s ~/.dotfiles/tmux-osx.conf ~/.tmux-osx.conf
-
-## Git
-For Git global ignore files, create this symlink:
-
-	ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
+    chmod u+x ~/.dotfiles/bootstrap.sh
+	~/.dotfiles/bootstrap.sh
 
 ## Vim
-Create the following symlinks:
-
-    ln -s ~/.dotfiles/vim ~/.vim
-    ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-    ln -s ~/.dotfiles/vim/vimrc.bundles ~/.vimrc.bundles
-
-If this is the first time Vim is being setup on the machine, it will be necessary to install Vundle itself:
+If you don't already use Vundle with Vim, install it and use it to install the plugins:
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-Vim bundles, which are managed via Vundle, can be installed using the following methods:
-
-From the command line:
-
     vim +PluginInstall +qall
-
-From inside Vim:
-
-    :PluginInstall
 
 All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on other machines.
 
-## Gem
-In order to prevent `gem install` or `gem update` from downloading RDoc and RI, symlink this file.
+# What's Inside?
+All my command-line tools and configurations for OSX & Linux!
 
-    ln -s ~/.dotfiles/gem/gemrc ~/.gemrc
+## Aliases
+* Lots of them...
+
+## Shell
+* [ZSH](http://www.zsh.org/) shell with [Prezto](https://github.com/sorin-ionescu/prezto) configuration framework
+* [tmux](https://tmux.github.io/) for terminal multiplexing
+
+## Editor
+* [Vim](http://www.vim.org/) for editing all the things
+* [Vundle](https://github.com/VundleVim/Vundle.vim) for Vim plug-in management
+
+## General
+*  Global ignore file for git
+* Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
+
 
 # ToDo
-
+* Improve README.md!
 * Remove .vimrc dependencies on .vimrc.bundles to support simplified vim config
 * Remove gVim & unessary Windows support, since I never use/test those platforms
-* Write simple bootstrap script (no software install, just symlinks)
 * Write script to make setting up a new machine a breeze
 * Fix hack to launch tmux in Zsh
+* Customize Zsh prompt
 * Cleanup tmux dotfiles
 * Investigate tmuxinator
 * Git Config & Attributes
@@ -70,7 +51,6 @@ In order to prevent `gem install` or `gem update` from downloading RDoc and RI, 
 Many individuals have contributed to/influenced my current setup:
 
 * Brandon Harris: [GitHub](https://github.com/irrigger)
-* Chris Penny: [GitHub](http://github.com/chrisp-zeroone)
 * Derek Wyatt: [Website](http://derekwyatt.org)
 * Drew Neil: [Vimcasts](http://vimcasts.org)
 * Mark Nichol: [Website](http://zanshin.net/), [GitHub](https://github.com/zanshin)
