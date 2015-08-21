@@ -43,4 +43,4 @@ colorscheme jellybeans
 let g:gundo_right=1
 let g:gundo_preview_bottom=1
 " Toggle Gundo
-nnoremap <F5> :GuneoToggle<CR>
+nnoremap <F5> :GundoToggle<CR>
