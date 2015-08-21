@@ -7,10 +7,23 @@ Ari Patrick's Dotfiles
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
 
 # Setup
+## Zsh
+For Zsh (Prezto) configuration create the following symlinks:
+
+    ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+    ln -s ~/.dotfiles/zsh/zprofile ~/.zprofile
+    ln -s ~/.dotfiles/zsh/zpreztorc ~/.zpreztorc
+
+## tmux
+For tmux configuration create this symlink:
+
+    ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+	ln -s ~/.dotfiles/tmux-osx.conf ~/.tmux-osx.conf
+
 ## Git
 For Git global ignore files, create this symlink:
 
-	$ ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
+	ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
 
 ## Vim
 Create the following symlinks:
@@ -38,16 +51,19 @@ All Bundles and their associated configurations are kept in `vimrc.bundles`. Thi
 ## Gem
 In order to prevent `gem install` or `gem update` from downloading RDoc and RI, symlink this file.
 
-    $ ln -s ~/.dotfiles/gem/gemrc ~/.gemrc
+    ln -s ~/.dotfiles/gem/gemrc ~/.gemrc
 
 # ToDo
 
 * Remove .vimrc dependencies on .vimrc.bundles to support simplified vim config
+* Remove gVim & unessary Windows support, since I never use/test those platforms
+* Write simple bootstrap script (no software install, just symlinks)
 * Write script to make setting up a new machine a breeze
-* TMUX
-* ZSH / Prezto
+* Fix hack to launch tmux in Zsh
+* Cleanup tmux dotfiles
+* Investigate tmuxinator
 * Git Config & Attributes
-* Homebrew (OSX)
+* Homebrew (OSX) & investigate cask
 
 # Credits
 

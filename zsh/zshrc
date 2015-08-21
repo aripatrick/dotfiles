@@ -1,0 +1,82 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Ari Patrick <ari.patrick@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+## Setup #######################################################################
+# Determine platform
+platform='unknown'
+unamestr=$(uname)
+if [[ $unamestr == 'Linux' ]]; then
+	platform='linux'
+elif [[ $unamestr == 'Darwin' ]]; then
+	platform='darwin'
+fi
+
+## Global ######################################################################
+# Use zmv - zsh's advanced file renamer
+autoload -U zmv
+# Shortening
+alias -g C='| wc -l'
+alias -g H='| head'
+alias -g L='| less'
+alias -g N='| /dev/null'
+alias -g S='| sort'
+alias -g G='| grep' # now you can do: ls foo G something
+
+# Exit the shell like vim
+alias :q='exit'
+
+# find by name
+# usage: fn foo
+# to find all files containing 'foo' in the name
+function fn() { ls **/*$1* }
+
+## ZSH #########################################################################
+# Config editing and reload shortcuts
+alias ze='vim ~/.zshrc'
+alias zr='source ~/.zshrc'
+
+## TMUX ########################################################################
+# Config editing and reload shortcuts
+alias tme='vim ~/.tmux.conf'
+alias tmr='tmux source-file ~/.tmux.conf'
+
+## VIM #########################################################################
+# Config editing shortcut
+alias ve='vim ~/.vimrc'
+# Install/update plugins(vr to keep inline with shortcut scheme)
+alias vr='vim +PluginInstall +qall'
+
+## Git #########################################################################
+# Don't try to glob with zsh, so you can do stuff like ga *foo*
+alias git='noglob git'
+# Make git auto-completion faster by favoring local completions
+__git_files () {
+	_wanted files expl 'local files' _files
+}
+
+## OS X Specific ###############################################################
+if [[ $platform == 'darwin' ]]; then
+	# Update OS X Software and update Homebrew, npm, and Ruby gem packages
+	alias update='sudo softwareupdate -i -a; brew update && brew upgrade && brew cleanup && brew prune && brew doctor; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+	# Show/hide hidden files in Finder
+	alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+	alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+	# Show/hide all desktop icons (useful when presenting)
+	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+	# Lock the system  (when going AFK)
+	alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+	# Send notification center notification
+	function notify() { osascript -e "display notification \"$*\""}
+fi
