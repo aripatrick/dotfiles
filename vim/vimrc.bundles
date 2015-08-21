@@ -35,10 +35,12 @@ filetype indent on
 
 "## Colors #####################################################################
 " Set default colorscheme
-colorscheme seti
+syntax enable
+set background=dark
+colorscheme jellybeans
 
 "### Gundo #####################################################################
 let g:gundo_right=1
 let g:gundo_preview_bottom=1
 " Toggle Gundo
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :GuneoToggle<CR>
