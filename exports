@@ -2,6 +2,10 @@
 export EDITOR='vim'
 export VISUAL='vim'
 
+## Language ####################################################################
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
 ## Pager #######################################################################
 export PAGER='less'
 

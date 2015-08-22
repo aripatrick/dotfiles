@@ -35,7 +35,8 @@ ensure_link "$DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 ensure_link "$DIR/tmux/tmux-osx.conf" "$HOME/.tmux-osx.conf"
 
 # Git
-ensure_link "$DIR/git/gitignore_global" "$HOME/.gitignore_global"
+ensure_link "$DIR/git/gitconfig" "$HOME/.gitconfig"
+ensure_link "$DIR/git/gitignore" "$HOME/.gitignore"
 
 # Vim
 ensure_link "$DIR/vim/vim" "$HOME/.vim"

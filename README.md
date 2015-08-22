@@ -30,7 +30,7 @@ All my command-line tools and configurations for OSX & Linux!
 * [Vundle](https://github.com/VundleVim/Vundle.vim) for Vim plug-in management
 
 ## General
-* Global ignore file for git
+* Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 
 
@@ -40,7 +40,6 @@ All my command-line tools and configurations for OSX & Linux!
 * Customize Zsh prompt
 * Cleanup tmux dotfiles
 * Investigate tmuxinator
-* Git Config & Attributes
 * Homebrew (OSX) & investigate cask
 
 # Credits

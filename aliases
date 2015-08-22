@@ -1,4 +1,7 @@
 ## Global ######################################################################
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
 # Exit the shell like vim
 alias :q='exit'
 
