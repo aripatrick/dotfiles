@@ -158,11 +158,20 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 #
 
 # Start main session when Zsh is launch. Doing this here to prevent visual lag.
-# if [ "$TMUX" = "" ]; then TERM=xterm-256color tmux new-session; fi
-if [ "$TMUX" = "" ]; then tmux -2 new-session; fi
+if [ "$TMUX" = "" ]; then
+#	if ! tmux has-session 2> /dev/null; then
+#		tmux_session='default'
+#		tmux \
+#			new-session -d -s "$tmux_session" \; \
+#			set-option -t "$tmux_session" destroy-unattached off &> /dev/null
+#	fi
+
+	# Attach to the 'prezto' session or to the last session used.
+	exec tmux -2 new-session
+fi
 
 # Auto start a session when Zsh is launched in a local terminal.
-#zstyle ':prezto:module:tmux:auto-start' local 'yes'
+# zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'

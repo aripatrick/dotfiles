@@ -37,7 +37,6 @@ All my command-line tools and configurations for OSX & Linux!
 # ToDo
 * Improve README.md!
 * Write script to make setting up a new machine a breeze
-* Fix hack to launch tmux in Zsh
 * Customize Zsh prompt
 * Cleanup tmux dotfiles
 * Investigate tmuxinator
