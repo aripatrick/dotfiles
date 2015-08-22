@@ -11,6 +11,17 @@ if filereadable(expand("~/.vimrc.bundles"))
 else
     silent! set background=dark
     silent! colorscheme molokai
+
+    " Configure status line display
+    set statusline=                             " Clear status line
+    set statusline+=\ %n                        " Buffer number
+    set statusline+=\ %<%F                      " Full file path
+    set statusline+=%m                          " Modified flag
+    set statusline+=%=                          " Right align everythign after this
+    set statusline+=%y                          " File type
+    set statusline+=%5l/%L                      " Current/total lines
+    set statusline+=%4c%V                       " Column numbers
+    set statusline+=%4P                         " Percentage through file
 endif
 
 "## Colors #####################################################################
@@ -20,24 +31,6 @@ set cc=0
 hi ColorColumn ctermbg=red guibg=black
 " Syntax highlighing
 syntax on
-" Setup gvim
-if has("gui_running")
-    " Setup background and colorscheme
-    set background=dark
-    colorscheme seti
-    " Remove toolbars and menus
-    set guioptions=ac
-    " Make the mouse disappear when in vim
-    set mousehide
-    " Some attempts at nice fonts
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ 11,Courier\ 10,DejaVu\ Sans\ Mono\ 9
-    elseif has("gui_macvim")
-        set guifont=Inconsolata:h11,Courier:h10,DejaVu\ Sans\ Mono:h9
-    elseif has("gui_win32")
-        set guifont=Inconsolata:h11,Courier:h10,DejaVu\ Sans\ Mono:h9
-    endif
-endif
 
 "## Spaces & Tabs ##############################################################
 
@@ -68,17 +61,6 @@ set virtualedit=all
 set shellslash
 " Always show status line
 set laststatus=2
-" Configure status line display
-set statusline=                             " Clear status line
-set statusline+=\ %n                        " Buffer number
-set statusline+=\ %{fugitive#statusline()}  " Git branch
-set statusline+=\ %<%F                      " Full file path
-set statusline+=%m                          " Modified flag
-set statusline+=%=                          " Right align everythign after this
-set statusline+=%y                          " File type
-set statusline+=%5l/%L                      " Current/total lines
-set statusline+=%4c%V                       " Column numbers
-set statusline+=%4P                         " Percentage through file
 
 if has("autocmd")
     " Remove line/column selection on inactive panes
@@ -93,14 +75,6 @@ if has("autocmd")
         autocmd WinEnter * setlocal cursorcolumn
         autocmd WinLeave * setlocal nocursorcolumn
     augroup END
-endif
-
-if has("win32")
-    " Starts gvim in full screen mode
-    autocmd GUIEnter * simalt ~x
-
-    " Disable special windows keys (copy/paste/etc)
-    set keymodel=
 endif
 
 "## Search and Highlighting ####################################################

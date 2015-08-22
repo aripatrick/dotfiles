@@ -39,6 +39,19 @@ syntax enable
 set background=dark
 colorscheme jellybeans
 
+"## User Interface #############################################################
+" Configure status line display
+set statusline=                             " Clear status line
+set statusline+=\ %n                        " Buffer number
+set statusline+=\ %{fugitive#statusline()}  " Git branch
+set statusline+=\ %<%F                      " Full file path
+set statusline+=%m                          " Modified flag
+set statusline+=%=                          " Right align everythign after this
+set statusline+=%y                          " File type
+set statusline+=%5l/%L                      " Current/total lines
+set statusline+=%4c%V                       " Column numbers
+set statusline+=%4P                         " Percentage through file
+
 "### Gundo #####################################################################
 let g:gundo_right=1
 let g:gundo_preview_bottom=1

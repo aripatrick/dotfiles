@@ -30,14 +30,12 @@ All my command-line tools and configurations for OSX & Linux!
 * [Vundle](https://github.com/VundleVim/Vundle.vim) for Vim plug-in management
 
 ## General
-*  Global ignore file for git
+* Global ignore file for git
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 
 
 # ToDo
 * Improve README.md!
-* Remove .vimrc dependencies on .vimrc.bundles to support simplified vim config
-* Remove gVim & unessary Windows support, since I never use/test those platforms
 * Write script to make setting up a new machine a breeze
 * Fix hack to launch tmux in Zsh
 * Customize Zsh prompt
