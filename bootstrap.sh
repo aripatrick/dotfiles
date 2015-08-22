@@ -21,6 +21,10 @@ function ensure_link {
 	fi
 }
 
+# General
+ensure_link "$DIR/exports" "$HOME/.exports"
+ensure_link "$DIR/aliases" "$HOME/.aliases"
+
 # Zsh
 ensure_link "$DIR/zsh/zshrc" "$HOME/.zshrc"
 ensure_link "$DIR/zsh/zprofile" "$HOME/.zprofile"
