@@ -6,6 +6,7 @@
 #   Ari Patrick <ari.patrick@gmail.com>
 
 source $HOME/.exports
+source $HOME/.extras
 
 ## Browser #####################################################################
 if [[ "$OSTYPE" == darwin* ]]; then

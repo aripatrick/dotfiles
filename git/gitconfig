@@ -1,6 +1,9 @@
 [user]
 	name = Ari Patrick
-	email = ari.patrick@gmail.com
+	email = ari@aripatrick.com
+
+[github]
+	user = aripatrick
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -88,3 +91,4 @@
     tags = tag -l
     branches = branch -a
     remotes = remote -v
+

@@ -2,18 +2,36 @@ Ari Patrick's Dotfiles
 ===============================
 
 # Installation
-
-    git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
-    chmod u+x ~/.dotfiles/bootstrap.sh
-	~/.dotfiles/bootstrap.sh
+```bash
+git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
+chmod u+x ~/.dotfiles/bootstrap.sh
+~/.dotfiles/bootstrap.sh
+```
 
 ## Vim
 If you don't already use Vundle with Vim, install it and use it to install the plugins:
 
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    vim +PluginInstall +qall
-
+```bash
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +PluginInstall +qall
+```
 All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on other machines.
+
+## Extras
+If ~/.extra exists, it will be sourced along with the other files. You can use this to add custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+
+My ~/.extra looks something like this:
+
+```bash
+# Git Credentials
+GIT_AUTHOR_NAME="Ari Patrick"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="ari@aripatrick.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+git config --global github.user aripatrick
+```
 
 # What's Inside?
 All my command-line tools and configurations for OSX & Linux!
@@ -32,7 +50,6 @@ All my command-line tools and configurations for OSX & Linux!
 ## General
 * Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
-
 
 # ToDo
 * Improve README.md!
