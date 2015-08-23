@@ -1,2 +1,7 @@
-install: --no-document
-update: --no-document
+---
+:update_sources: true
+:backtrace: false
+:verbose: true
+:sources:
+- https://rubygems.org
+gem: --no-ri --no-rdoc
