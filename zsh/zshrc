@@ -6,7 +6,9 @@
 #   Ari Patrick <ari.patrick@gmail.com>
 #
 
+source $HOME/.exports
 source $HOME/.aliases
+source $HOME/.extras
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then

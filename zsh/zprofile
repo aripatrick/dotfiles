@@ -5,8 +5,10 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Ari Patrick <ari.patrick@gmail.com>
 
-source $HOME/.exports
-source $HOME/.extras
+## Language ####################################################################
+if [[ -z "$LANG" ]]; then
+	export LANG='en_US.UTF-8'
+fi
 
 ## Browser #####################################################################
 if [[ "$OSTYPE" == darwin* ]]; then
