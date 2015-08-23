@@ -1,37 +1,14 @@
 Ari Patrick's Dotfiles
 ===============================
 
-# Installation
+# Quick Start
 ```bash
 git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
 chmod u+x ~/.dotfiles/bootstrap.sh
 ~/.dotfiles/bootstrap.sh
 ```
 
-## Vim
-If you don't already use Vundle with Vim, install it and use it to install the plugins:
-
-```bash
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +PluginInstall +qall
-```
-All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on other machines.
-
-## Extras
-If ~/.extra exists, it will be sourced along with the other files. You can use this to add custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
-
-My ~/.extra looks something like this:
-
-```bash
-# Git Credentials
-GIT_AUTHOR_NAME="Ari Patrick"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="ari@aripatrick.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-git config --global github.user aripatrick
-```
+See [setup details](#details) for additional information.
 
 # What's Inside?
 All my command-line tools and configurations for OSX & Linux!
@@ -51,7 +28,36 @@ All my command-line tools and configurations for OSX & Linux!
 * Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 
-# ToDo
+# Details
+## Vim
+If you don't already use Vundle with Vim, install it and use it to install the plugins:
+
+```bash
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +PluginInstall +qall
+```
+
+All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on other machines.
+
+## Extras
+If ~/.extra exists, it will be sourced along with the other files. You can use this to add custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+
+My ~/.extra looks something like this:
+
+```bash
+# Git Credentials
+GIT_AUTHOR_NAME="Ari Patrick"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="ari@aripatrick.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+git config --global github.user aripatrick
+```
+
+You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
+
+# To-Do
 * Improve README.md!
 * Write script to make setting up a new machine a breeze
 * Customize Zsh prompt
@@ -59,20 +65,19 @@ All my command-line tools and configurations for OSX & Linux!
 * Investigate tmuxinator
 * Homebrew (OSX) & investigate cask
 
-# Credits
+# Author
+This repository was made with &#9829; by [Ari Patrick](https://github.com/aripatrick/).
+Suggestions and improvements are always [welcome](https://github.com/mathiasbynens/dotfiles/issues)!
+
+# Thanks to...
 
 Many individuals have contributed to/influenced my current setup:
 
-* Brandon Harris: [GitHub](https://github.com/irrigger)
-* Derek Wyatt: [Website](http://derekwyatt.org)
-* Drew Neil: [Vimcasts](http://vimcasts.org)
-* Mark Nichol: [Website](http://zanshin.net/), [GitHub](https://github.com/zanshin)
-* Steve Losh: [Website](http://stevelosh.com), [GitHub](https://github.com/sjl)
-* Tim Pope: [Website](http://tbaggery.com/), [GitHub](https://github.com/tpope)
-
-# Self-Promotion
-Like my setup? Check out some of my other work:
-
-* [Website](http://aripatrick.com)
-* [GitHub](https://github.com/aripatrick/)
-* [LinkedIn](http://linkedin.com/in/aripatrick)
+* [Brandon Harris](https://github.com/irrigger) for introducing me to vim
+* [Derek Wyatt](http://derekwyatt.org) for his vim insights
+* [Drew Neil](https://github.com/nelstrom) for [Vimcasts](http://vimcasts.org)
+* [Mark Nichol](https://github.com/zanshin) for his [dotfile repository](https://github.com/zanshin/dotfiles)
+* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfile repository](https://github.com/mathiasbynens/dotfiles)
+* [Steve Losh](http://stevelosh.com) for [Gundo](http://stevelosh.com/projects/gundo/) and [Learn Vimscript the Hard Way](http://stevelosh.com/projects/learnvimscriptthehardway/)
+* [Tim Pope](http://tbaggery.com/) for all of his [vim plugins](https://github.com/tpope)
+* Anyone who [contributed a  patch](https://github.com/aripatrick/dotfiles/contributors) or [made a helpful suggestion](https://github.com/aripatrick/dotfiles/issues)
