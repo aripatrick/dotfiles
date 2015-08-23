@@ -8,13 +8,15 @@ chmod u+x ~/.dotfiles/bootstrap.sh
 ~/.dotfiles/bootstrap.sh
 ```
 
-See [setup details](#details) for additional information.
+See [setup details](#setup-details) for additional information.
 
 # What's Inside?
 All my command-line tools and configurations for OSX & Linux!
 
-## Aliases
-* Lots of them...
+## General Information
+* Aliases are referenced from [~/.aliases](../aliases)
+* Exports are referenced from [~/.exports](../exports)
+* An ~/.extras file can be used for information you'd like stored outside the repository. See [Extras](#extras) for more info.
 
 ## Shell
 * [ZSH](http://www.zsh.org/) shell with [Prezto](https://github.com/sorin-ionescu/prezto) configuration framework
@@ -28,7 +30,7 @@ All my command-line tools and configurations for OSX & Linux!
 * Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 
-# Details
+# Setup Details
 ## Vim
 If you don't already use Vundle with Vim, install it and use it to install the plugins:
 
@@ -66,8 +68,7 @@ You could also use `~/.extra` to override settings, functions and aliases from m
 * Homebrew (OSX) & investigate cask
 
 # Author
-This repository was made with &#9829; by [Ari Patrick](https://github.com/aripatrick/).
-Suggestions and improvements are always [welcome](https://github.com/mathiasbynens/dotfiles/issues)!
+This repository was made with &#9829; by [Ari Patrick](https://github.com/aripatrick/)! Suggestions and improvements are always [welcome](https://github.com/mathiasbynens/dotfiles/issues)!
 
 # Thanks to...
 
