@@ -13,25 +13,25 @@ See [setup details](#setup-details) for additional information.
 # What's Inside?
 All my command-line tools and configurations for OSX & Linux!
 
-## General Information
+### General Information
 * Aliases are referenced from [~/.aliases](../aliases)
 * Exports are referenced from [~/.exports](../exports)
 * An ~/.extras file can be used for information you'd like stored outside the repository. See [Extras](#extras) for more info.
 
-## Shell
+### Shell
 * [ZSH](http://www.zsh.org/) shell with [Prezto](https://github.com/sorin-ionescu/prezto) configuration framework
 * [tmux](https://tmux.github.io/) for terminal multiplexing
 
-## Editor
+### Editor
 * [Vim](http://www.vim.org/) for editing all the things
 * [Vundle](https://github.com/VundleVim/Vundle.vim) for Vim plug-in management
 
-## General
+### General
 * Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 
 # Setup Details
-## Vim
+### Vim
 If you don't already use Vundle with Vim, install it and use it to install the plugins:
 
 ```bash
@@ -41,7 +41,7 @@ vim +PluginInstall +qall
 
 All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on other machines.
 
-## Extras
+### Extras
 If ~/.extra exists, it will be sourced along with the other files. You can use this to add custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
 My ~/.extra looks something like this:
