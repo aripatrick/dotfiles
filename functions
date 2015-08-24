@@ -1,0 +1,38 @@
+## Setup #######################################################################
+# Determine platform
+platform='unknown'
+unamestr=$(uname)
+if [[ $unamestr == 'Linux' ]]; then
+    platform='linux'
+elif [[ $unamestr == 'Darwin' ]]; then
+    platform='darwin'
+fi
+
+
+## Shortcuts ###################################################################
+# 'o' with no arguments opens the current directory, otherwise opens the given
+# locations
+function o() {
+	open='open'
+	if [[ $platform == 'darwin' ]]; then
+		open = 'open'
+	elif [[ $platform == 'linux' ]]; then
+    	open='xdg-open'
+	fi
+
+	if [ $# -eq 0 ]; then
+		$open .;
+	else
+		$open "$@";
+	fi
+}
+
+# 'v' with no arguments opens the current directory in Vim, otherwise opens the
+# given location
+function v() {
+    if [ $# -eq 0 ]; then
+        vim .;
+    else
+        vim "$@";
+    fi;
+}

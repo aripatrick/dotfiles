@@ -24,6 +24,7 @@ function ensure_link {
 # General
 ensure_link "$DIR/exports" "$HOME/.exports"
 ensure_link "$DIR/aliases" "$HOME/.aliases"
+ensure_link "$DIR/functions" "$HOME/.functions"
 
 # Zsh
 ensure_link "$DIR/zsh/zshrc" "$HOME/.zshrc"

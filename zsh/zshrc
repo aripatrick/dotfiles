@@ -8,6 +8,7 @@
 
 source $HOME/.exports
 source $HOME/.aliases
+source $HOME/.functions
 source $HOME/.extras
 
 # Source Prezto.
