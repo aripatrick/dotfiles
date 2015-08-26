@@ -84,6 +84,7 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 * Wgetrc config
 * Homebrew (OSX) & investigate cask
 * Figure out why 'vim .' won't open file explorer but 'vim ..' will
+* Consider consolidating .vimrc and .vimrc.bundles
 
 # Author
 This repository was made with &#9829; by [Ari
