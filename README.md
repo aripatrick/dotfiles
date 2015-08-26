@@ -77,6 +77,7 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 # To-Do
 * Improve README.md!
 * Write script to make setting up a new machine a breeze
+* Create simple bash setup for situations where Zsh is not an option
 * Customize Zsh prompt
 * Cleanup tmux dotfiles
 * Investigate tmuxinator
