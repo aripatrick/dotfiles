@@ -42,7 +42,6 @@ ensure_link "$DIR/git/gitignore" "$HOME/.gitignore"
 # Vim
 ensure_link "$DIR/vim/vim" "$HOME/.vim"
 ensure_link "$DIR/vim/vimrc" "$HOME/.vimrc"
-ensure_link "$DIR/vim/vimrc.bundles" "$HOME/.vimrc.bundles"
 
 # Gem
 ensure_link "$DIR/gem/gemrc" "$HOME/.gemrc"

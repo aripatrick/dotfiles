@@ -47,11 +47,6 @@ Here's what's needed in order to fully benefit from these dotfiles:
 #### General
 * [Git](https://git-scm.com/) for version control
 
-### Vim Bundles
-All Bundles and their associated configurations are kept in `vimrc.bundles`.
-This file is sourced inside `vimrc` only if found. This allows a minified
-version of my Vim configuration to be installed on other machines.
-
 ### Extras
 If ~/.extras exists, it will be sourced along with the other files. You can use
 this to add custom commands without the need to fork this entire repository, or
@@ -83,7 +78,6 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 * Wgetrc config
 * Homebrew (OSX) & investigate cask
 * Figure out why 'vim .' won't open file explorer but 'vim ..' will
-* Consider consolidating .vimrc and .vimrc.bundles
 
 # Author
 This repository was made with &#9829; by [Ari
