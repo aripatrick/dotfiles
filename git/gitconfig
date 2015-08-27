@@ -2,13 +2,13 @@
 	name = Ari Patrick
 	email = ari@aripatrick.com
 
-[github]
-	user = aripatrick
+[credential]
+    helper = cache --timeout=1800
 
 [color]
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+    # Use colors in Git commands that are capable of colored output when
+    # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+    ui = auto
 
 [color "branch"]
     current = yellow reverse
@@ -67,26 +67,10 @@
 	renames = copies
 
 [alias]
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
 
-	# View the current working tree status using the short format
-	s = status -s
-
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
-
-	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
-
-	# Add all to staging
-	aa = add -A
-
-	# Commit all changes
-	ca = !git add -A && git commit -av
+	# Show last commit with stats
+	last = log -1 --stat
 
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend
@@ -95,4 +79,3 @@
     tags = tag -l
     branches = branch -a
     remotes = remote -v
-

@@ -62,8 +62,21 @@ alias ve='vim ~/.vimrc'                 # Edit the vimrc
 alias vr='vim +PluginInstall +qall'		# Install/update plugins
 
 ## Git #########################################################################
-# Don't glob, so, in Zsh, you can do stuff like ga *foo*
-alias git='noglob git'
+alias git='noglob git'					# Don't glob so you can do stuff like:
+										# ga *foo*
+alias g='git'                           # Shortcut for Git
+alias ga='git add'                      # Add <file/path>
+alias gaa='git add -A'                  # Add all
+alias gu='git reset HEAD --'            # Unstage <file/path>
+alias gc='git commit -m'                # Commit
+alias gca='git add -A && git commit -av'
+alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
+alias gs='git status -sb'				# View current status with branch info
+alias gd='git diff'						# Diff
+alias gf='git fetch'					# Fetch
+alias gm='git merge'					# Merge
+alias gr='git rebase'					# Rebase
+alias gp='git push'						# Push
 
 ## OS X Specific ###############################################################
 if [[ $platform == 'darwin' ]]; then
