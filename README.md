@@ -67,7 +67,6 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="ari@aripatrick.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
-git config --global github.user aripatrick
 ```
 
 You could also use `~/.extra` to override settings, functions and aliases from
