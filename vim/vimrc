@@ -32,12 +32,11 @@ hi ColorColumn ctermbg=red guibg=black
 " Syntax highlighing
 syntax on
 
-"## Spaces & Tabs ##############################################################
-
 "## General ####################################################################
 " Use UTF-8 without byte order mark
 set encoding=utf-8 nobomb
-
+filetype off
+filetype on
 "## User Interface #############################################################
 " Disable bells
 set noerrorbells visualbell t_vb=
@@ -111,6 +110,16 @@ endif
 "## Formatting #################################################################
 " Turn autoindenting on
 set autoindent
+" Automatically indent braces
+set cindent
+" Number of columns a tab counts for
+set tabstop=4
+" Number of columns a tab counts for in insert mode
+set softtabstop=4
+" Number of columns text is intented with reindent operations and c-style intent
+set shiftwidth=4
+" Don't convert tabs to spaces
+set noexpandtab
 " No word wrap
 set nowrap
 " Set default textwidth
@@ -122,6 +131,7 @@ set nostartofline
 " Backspace over start, indent, and eol
 set backspace=2
 
+
 if has("autocmd")
     " Automatically delete trailing white spaces
     augroup clear_whitespace
@@ -132,7 +142,6 @@ if has("autocmd")
     " Filetype specific tabbing
     augroup set_tabbing
         autocmd!
-        autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab cindent
         autocmd FileType python,vim,vimrc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
     augroup END
 
