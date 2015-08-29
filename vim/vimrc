@@ -166,6 +166,11 @@ set backspace=2
 
 
 if has("autocmd")
+    " Set format options
+    augroup format_options
+        autocmd!
+        autocmd BufNewFile,BufRead * setlocal formatoptions+=cqt
+    augroup END
     " Automatically delete trailing white spaces
     augroup clear_whitespace
         autocmd!

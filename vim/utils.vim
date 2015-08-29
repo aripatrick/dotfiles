@@ -25,6 +25,10 @@ function! SetupDataDirectories()
         let cmd = "set " . dir . "=" . tmp
         exec cmd
     endfor
+
+    " Move netrw's home directory to the _data directory
+    let g:netrw_home=data_dir
+
 endfunction
 
 function! ToggleLineLengthHighlight()
