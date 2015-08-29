@@ -30,6 +30,7 @@ repository. See [Extras](#extras) for more info.
 ### General
 * Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
+* Wget configuration
 
 # Setup Details
 ### Dependencies
@@ -75,7 +76,6 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 * Customize Zsh prompt
 * Cleanup tmux dotfiles
 * Investigate tmuxinator
-* Wgetrc config
 * Homebrew (OSX) & investigate cask
 * Figure out why 'vim .' won't open file explorer but 'vim ..' will
 

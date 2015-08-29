@@ -45,3 +45,6 @@ ensure_link "$DIR/vim/vimrc" "$HOME/.vimrc"
 
 # Gem
 ensure_link "$DIR/gem/gemrc" "$HOME/.gemrc"
+
+# Wget
+ensure_link "$DIR/wget/wgetrc" "$HOME/.wgetrc"
