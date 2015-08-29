@@ -48,3 +48,6 @@ ensure_link "$DIR/gem/gemrc" "$HOME/.gemrc"
 
 # Wget
 ensure_link "$DIR/wget/wgetrc" "$HOME/.wgetrc"
+
+# Curl
+ensure_link "$DIR/curl/curlrc" "$HOME/.curlrc"

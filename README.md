@@ -30,7 +30,7 @@ repository. See [Extras](#extras) for more info.
 ### General
 * Git config and global ignore file
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
-* Wget configuration
+* Wget & cURL configurations
 
 # Setup Details
 ### Dependencies
