@@ -68,7 +68,8 @@ alias g='git'                           # Shortcut for Git
 alias ga='git add'                      # Add <file/path>
 alias gaa='git add -A'                  # Add all
 alias gu='git reset HEAD --'            # Unstage <file/path>
-alias gc='git commit'	                # Commit
+alias gc='git commit -v'				# Commit, showing diff of HEAD & commit
+# Commit all, showing diff of HEAD & commit
 alias gca='git add -A && git commit -av'
 alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
 alias gs='git status -sb'				# View current status with branch info
