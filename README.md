@@ -72,9 +72,10 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 # To-Do
 * Improve README.md!
 * Write script to make setting up a new machine a breeze
-* Create simple bash setup for situations where Zsh is not an option
+* Create simple bash setup for situations where Zsh is not an option?
 * Customize Zsh prompt
 * Cleanup tmux dotfiles
+* Combine tmux configs using if-shell 'test "$(uname)" = "Darwin"'
 * Investigate tmuxinator
 * Homebrew (OSX) & investigate cask
 * Figure out why 'vim .' won't open file explorer but 'vim ..' will
