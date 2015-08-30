@@ -21,7 +21,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'trusktr/seti.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'ck3g/vim-change-hash-syntax'
+" Plugin 'ck3g/vim-change-hash-syntax'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'sheerun/vim-polyglot'
@@ -68,8 +68,7 @@ set statusline+=%4P                         " Percentage through file
 "## General ####################################################################
 " Use UTF-8 without byte order mark
 set encoding=utf-8 nobomb
-filetype off
-filetype on
+set spelllang=en_us
 
 "## User Interface #############################################################
 " Disable bells
@@ -166,10 +165,11 @@ set nostartofline
 set backspace=2
 
 if has("autocmd")
-    " Set format options
+    " Set general format options
     augroup format_options
         autocmd!
-        autocmd BufNewFile,BufRead * setlocal formatoptions+=cqt
+        autocmd BufNewFile,BufRead * setlocal formatoptions=cqt
+        autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
     augroup END
     " Automatically delete trailing white spaces
     augroup clear_whitespace
@@ -177,16 +177,16 @@ if has("autocmd")
         autocmd BufEnter,BufRead,BufWrite * silent! %s/[\r \t]\+$//
         autocmd BufEnter *.php :%s/[ \t\r]\+$//e
     augroup END
-    " Filetype specific tabbing
-    augroup set_tabbing
+    " Filetype options (one-liners)
+    augroup filetype_options
         autocmd!
-        autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
         autocmd FileType python,vim,vimrc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+        autocmd BufRead,BufNewFile *.md setlocal spell
     augroup END
     " Git commit message formatting
     augroup git_format
         autocmd!
-        autocmd FileType gitcommit setlocal textwidth=72
+        autocmd FileType gitcommit setlocal spell textwidth=72
         " Always start on first line of git commit message
         autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
     augroup END
