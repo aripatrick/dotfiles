@@ -13,11 +13,11 @@ vim +PluginInstall +qall
 ```
 
 See [setup details](#setup-details) for additional information on dependencies
-and additional configuation options.
+and additional configuration options.
 
 # What's Inside?
 A collection of command-line tools and configurations, curated by [yours
-truly](#author). These dotfiles are organized to accomodate as-is or selective
+truly](#author). These dotfiles are organized to accommodate as-is or selective
 usage. As I primarily work in Linux & OSX, these dotfiles are geared toward
 those platforms.
 
@@ -28,7 +28,7 @@ those platforms.
 repository. See [Extras](#extras) for more info.
 
 ### General
-* Git config and global ignore file
+* Git config, global ignore file, and commit message template
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 * Wget & cURL configurations
 
@@ -79,6 +79,7 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 * Investigate tmuxinator
 * Homebrew (OSX) & investigate cask
 * Figure out why 'vim .' won't open file explorer but 'vim ..' will
+* Figure out best way to share vim spellfile across machines
 
 # Author
 This repository was made with &#9829; by [Ari

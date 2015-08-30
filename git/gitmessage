@@ -1,0 +1,18 @@
+## Subject #######################################
+# [Type] Subject; Be imperative & 50 chars or less
+
+
+## Body ################################################################
+# Optional: More detailed commit description. Wrapped to 72 chars total.
+# - Why is this change necessary?
+# - How does it address the issue?
+# - What side effects does this change have?
+
+
+## Type Reference ######################################################
+# [Add]			Used for new features/functionality
+# [Mod]ify		Used for changes in behavior or functionality
+# [Ref]ator		Used for code restructuring, without behavioral changes
+# [Fix]			Used for bug fixes and removal of undesirable behavior
+# [Rem]ove		Used for removal of existing features/functionality
+# [Rea]dability	Used for changes to improve readability
