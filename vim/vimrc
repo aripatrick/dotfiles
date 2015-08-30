@@ -19,9 +19,9 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'trusktr/seti.vim'
-Plugin 'ck3g/vim-change-hash-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'airblade/vim-gitgutter'
+"Plugin 'ck3g/vim-change-hash-syntax'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'sheerun/vim-polyglot'
@@ -70,6 +70,7 @@ set statusline+=%4P                         " Percentage through file
 set encoding=utf-8 nobomb
 filetype off
 filetype on
+
 "## User Interface #############################################################
 " Disable bells
 set noerrorbells visualbell t_vb=
@@ -164,7 +165,6 @@ set nostartofline
 " Backspace over start, indent, and eol
 set backspace=2
 
-
 if has("autocmd")
     " Set format options
     augroup format_options
@@ -180,9 +180,16 @@ if has("autocmd")
     " Filetype specific tabbing
     augroup set_tabbing
         autocmd!
+        autocmd FileType * setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
         autocmd FileType python,vim,vimrc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
     augroup END
-
+    " Git commit message formatting
+    augroup git_format
+        autocmd!
+        autocmd FileType gitcommit setlocal textwidth=72
+        " Always start on first line of git commit message
+        autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+    augroup END
 endif
 
 " Toggle wrap
@@ -216,6 +223,7 @@ nnoremap <silent> ss <C-w>s
 "## Misc #######################################################################
 " Open vimrc
 noremap <leader>v :e $MYVIMRC<CR>
+
 " Reload vimrc
 noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 

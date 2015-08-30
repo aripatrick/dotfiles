@@ -46,6 +46,21 @@ function! ToggleLineLengthHighlight()
     let b:line_length_highlight = l:toggle
 endfunction
 
+" Get the path to the null device
+function GetNullDevice()
+    if filewritable('/dev/null')
+        return '/dev/null'
+    else
+        return 'NUL'
+    endif
+endfunction
+
+" Write file as superuser, even if vim wasn't opened with appropriate
+" permissions (without having to see the pesky messages!)
+function WriteAsSuperUser(file)
+    exec 'silent %write !sudo tee ' . shellescape(a:file, 1) . ' >' . GetNullDevice() | edit!
+endfunction
+
 command! SetupDataDirectories call SetupDataDirectories()
 command! ToggleLineLengthHighlight call ToggleLineLengthHighlight()
-
+command W call WriteAsSuperUser(@%)
