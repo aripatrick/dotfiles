@@ -12,24 +12,33 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+" Plugin Manager
+Plugin 'gmarik/Vundle.vim' " Let Vundle manage Vundle
 
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'trusktr/seti.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'airblade/vim-gitgutter'
-" Plugin 'ck3g/vim-change-hash-syntax'
+" Colorschemes
+ Plugin 'trusktr/seti.vim'
+
+" Language support/syntax highlighting
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'sheerun/vim-polyglot'
 " Plugin 'vim-ruby/vim-ruby'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'rking/ag.vim'
-" Plugin 'mileszs/ack.vim'
-" Plugin 'Valloric/YouCompleteMe'
+
+" Wrappers
+Plugin 'tpope/vim-fugitive' " Git
+" Plugin 'rking/ag.vim' " ag / The Silver Searcher
+" Plugin 'mileszs/ack.vim' " ack
+
+" Writing/editing helpers
+Plugin 'ntpeters/vim-better-whitespace' " Mark and remove trailing whitespace
+Plugin 'nathanaelkane/vim-indent-guides' "Visually display indent levels in code
+Plugin 'airblade/vim-gitgutter' " Show a git-diff in the gutter (sign column)
+Plugin 'sjl/gundo.vim' " Undo tree
+" Plugin 'ck3g/vim-change-hash-syntax' " Change Ruby hash syntax to 1.9
+" Plugin 'kien/ctrlp.vim' " Fuzzy file, butter, mru, tag, etc. finder
+
+" Misc.
+" Plugin 'Valloric/YouCompleteMe' " Code completion engine
 
 " All plugins must be added before this line
 call vundle#end()
