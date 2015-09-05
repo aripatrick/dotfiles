@@ -6,10 +6,16 @@
 #   Ari Patrick <ari.patrick@gmail.com>
 #
 
-source $HOME/.exports
-source $HOME/.aliases
-source $HOME/.functions
-source $HOME/.extras
+# Load necessary dotfiles
+# ~/.path		For extending '$PATH'
+# ~/.exports	For creating/overriding exports
+# ~/.aliases	For creating/overriding aliases
+# ~/.functions	For handy functions
+# ~/.extras		For other settings you don't want to commit to the repo
+for file in ~/.{path,exports,functions,aliases,extras}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done
+unset file;
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
