@@ -71,6 +71,8 @@ alias gu='git reset HEAD --'            # Unstage <file/path>
 alias gc='git commit -v'				# Commit, showing diff of HEAD & commit
 # Commit all, showing diff of HEAD & commit
 alias gca='git add -A && git commit -av'
+alias gco='git checkout'                # Checkout
+alias gb='git branch'                   # Branch
 alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
 alias gs='git status -sb'				# View current status with branch info
 alias gd='git diff'						# Diff
@@ -78,6 +80,7 @@ alias gf='git fetch'					# Fetch
 alias gm='git merge'					# Merge
 alias gr='git rebase'					# Rebase
 alias gp='git push'						# Push
+alias gl='git pull'						# Pull
 
 ## OS X Specific ###############################################################
 if [[ $platform == 'darwin' ]]; then
