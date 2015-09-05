@@ -1,5 +1,5 @@
 "## Setup ######################################################################
-runtime utils.vim
+source ~/.vim/utils.vim
 call SetupDataDirectories()
 
 "## Plugin Management ##########################################################
@@ -16,7 +16,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " Let Vundle manage Vundle
 
 " Colorschemes
- Plugin 'trusktr/seti.vim'
+" Plugin 'trusktr/seti.vim'
 
 " Language support/syntax highlighting
 " Plugin 'pangloss/vim-javascript'
@@ -59,7 +59,7 @@ hi ColorColumn ctermbg=red guibg=black
 syntax on
 " Set default colorscheme
 set background=dark
-colorscheme jellybeans
+colorscheme seti
 
 "## User Interface #############################################################
 " Configure status line display
