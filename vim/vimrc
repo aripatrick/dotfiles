@@ -13,7 +13,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugin Manager
-Plugin 'gmarik/Vundle.vim' " Let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim' " Let Vundle manage Vundle
 
 " Colorschemes
  Plugin 'trusktr/seti.vim'

@@ -3,12 +3,12 @@ Ari Patrick's Dotfiles
 
 # Quick Start
 ```bash
-git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
+git clone git://github.com/aripatrick/dotfiles.git ~/.dotfiles
 chmod u+x ~/.dotfiles/bootstrap.sh
 ~/.dotfiles/bootstrap.sh
 
 # Run the commands below to install Vundle & vim plug-ins
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 ```
 
