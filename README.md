@@ -31,6 +31,7 @@ repository. See [Extras](#extras) for more info.
 * Git config, global ignore file, and commit message template
 * Prevent RDoc and RI files from downloading with 'gem install' & 'gem update'
 * Wget & cURL configurations
+* Homebrew script for OSX utility and app installation
 
 # Setup Details
 ### Dependencies
@@ -72,12 +73,10 @@ repository](https://github.com/aripatrick/dotfiles/fork) instead, though.
 # To-Do
 * Improve README.md!
 * Write script to make setting up a new machine a breeze
-* Create simple bash setup for situations where Zsh is not an option?
 * Customize Zsh prompt
-* Cleanup tmux dotfiles
 * Combine tmux configs using if-shell 'test "$(uname)" = "Darwin"'
 * Investigate tmuxinator
-* Homebrew (OSX) & investigate cask
+* Homebrew testing!
 * Figure out why 'vim .' won't open file explorer but 'vim ..' will
 * Figure out best way to share vim spellfile across machines
 
