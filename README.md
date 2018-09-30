@@ -3,7 +3,7 @@ Ari Patrick's Dotfiles
 
 # Quick Start
 ```bash
-git clone git://github.com/aripatrick/dotfiles.git ~/.dotfiles
+git clone https://github.com/aripatrick/dotfiles.git ~/.dotfiles
 chmod u+x ~/.dotfiles/bootstrap.sh
 ~/.dotfiles/bootstrap.sh
 
