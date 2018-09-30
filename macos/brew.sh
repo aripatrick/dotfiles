@@ -12,13 +12,18 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+#Save Homebrew's installed location
+BREW_PREFIX=$(brew --prefix)
+
 echo "Installing Homebrew formulae..."
 # Update OS X's outdated core utilities
 brew install coreutils					# GNU core utilities (see formula for PATH info)
-brew install findutils					# GNU find, locate, updatedb, and xargs (g prefix)
-brew install gnu-sed --default-names	# Overwrite the built-in `sed`
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
+brew install findutils --with-default-names	# GNU find, locate, updatedb, and xargs (g prefix)
+brew install gnu-sed --with-default-names	# Overwrite the built-in `sed`
+brew install grep --with-default-names
+brew install openssh
 
 # Essentials
 brew install vim --override-system-vi
@@ -56,8 +61,6 @@ brew install ffmpeg --with-libass --with-freetype --with-libvorbis --with-libvpx
 
 echo "Installing Homebrew Cask apps..."
 
-brew install caskroom/cask/brew-cask	# Install brew cask before using command
-
 apps=()
 
 # Improve Mac Quicklook
@@ -68,7 +71,6 @@ apps+=(
 	quicklook-json
 	qlprettypatch
 	quicklook-csv
-	betterzipql
 	webpquicklook
 	suspicious-package
 )
@@ -80,10 +82,9 @@ apps+=(
 	google-chrome
 	firefox
 	spotify
-	flash
+	flash-npapi
 	vlc
 	transmission
-	skype
 	iterm2
 )
 
@@ -97,11 +98,25 @@ apps+=(
 # Default is: /Users/$user/Applications
 brew cask install --appdir="/Applications" ${apps[@]}
 
-brew cask alfred link					# Link installed applications to Alfred
+# Link applications installed via cask to Alfred
+#brew cask alfred unlink && brew cask alfred link
+
+echo "Installing Mac App Store Apps"
+
+brew install mas
+
+mas upgrade
+
+reattach-to-user-namespace mas install
+
+mas install 497799835	#Xcode
+sudo xcodebuild -license accept
+mas install 975937182	#Fantastical 2
+mas install 585829637	#Todoist
+mas install 1136796093	#Audionote 2
 
 echo "Finalizing Homebrew configuration..."
 
 brew update
 brew upgrade
 brew cleanup
-brew cask cleanup
