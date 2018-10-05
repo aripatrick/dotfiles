@@ -2,6 +2,7 @@
 #
 # Creates symlinks to dotfiles. In the event a file already exists, a message is
 # displayed and the file is skipped.
+# Requirement: Run from ZSH
 
 # Capture the path this script lives in, to use as a base path in symlinks
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
@@ -27,9 +28,31 @@ ensure_link "$DIR/aliases" "$HOME/.aliases"
 ensure_link "$DIR/functions" "$HOME/.functions"
 
 # Zsh
-ensure_link "$DIR/zsh/zshrc" "$HOME/.zshrc"
-ensure_link "$DIR/zsh/zprofile" "$HOME/.zprofile"
-ensure_link "$DIR/zsh/zpreztorc" "$HOME/.zpreztorc"
+if test -f "$HOME/.zshrc"
+then
+	echo "$HOME/.zshrc" already exists
+else
+    # Make sure we have latest version of Prezto
+	cd $ZPREZTODIR
+	git pull
+	git submodule update --init --recursive
+
+	# Create ~/.zprezto symlink to workaround hardcoded .zprezto path
+	# https://github.com/sorin-ionescu/prezto/issues/495
+	ln -s ~/.dotfiles/prezto ~/.zprezto
+
+	# Create symlinks, for each file in prezto runcoms
+	setopt EXTENDED_GLOB
+	for rcfile in "${ZDOTDIR:-$HOME}"/.dotfiles/prezto/runcoms/^README.md(.N); do
+		ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+	done
+
+	# Set Zsh as the default shell
+	chsh -s /bin/zsh
+fi
+#ensure_link "$DIR/zsh/zshrc" "$HOME/.zshrc"
+#ensure_link "$DIR/zsh/zprofile" "$HOME/.zprofile"
+#ensure_link "$DIR/zsh/zpreztorc" "$HOME/.zpreztorc"
 
 # tmux
 ensure_link "$DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
